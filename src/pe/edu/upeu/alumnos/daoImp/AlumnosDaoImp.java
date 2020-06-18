@@ -85,7 +85,7 @@ public class AlumnosDaoImp implements AlumnosDao{
 						Map<String,Object> map = new HashMap<String, Object>();
 		                map.put("idescuela", rs.getInt("idescuela"));
 		                map.put("nombrecat", rs.getString("nombrecat"));
-		                map.put("idlumno", rs.getInt("idalumno"));
+		                map.put("idalumno", rs.getInt("idalumno"));
 		                map.put("apellnombres", rs.getString("apellnombres"));
 		                map.put("correo", rs.getString("correo"));
 		                map.put("telefono", rs.getInt("telefono"));

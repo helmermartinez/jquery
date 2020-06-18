@@ -42,6 +42,7 @@ public class HomeController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html;charset=UTF-8");
 		// TODO Auto-generated method stub
 				PrintWriter out = response.getWriter();
 				int op = Integer.parseInt(request.getParameter("opc"));
@@ -65,7 +66,7 @@ public class HomeController extends HttpServlet {
 			    break;
 				case 6: //Modificar producto
 						ida = Integer.parseInt(request.getParameter("ida"));
-						idescuela = Integer.parseInt(request.getParameter("ida"));
+						idescuela = Integer.parseInt(request.getParameter("idescuela"));
 						nombre = request.getParameter("nombre");
 						correo = request.getParameter("correo");				
 						telefono = Integer.parseInt(request.getParameter("telefono"));				

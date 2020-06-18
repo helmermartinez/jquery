@@ -10,18 +10,19 @@ $("#boton").click(function(){
 	var fono = $("#fono").val();
 	var id = $("#id").val();
 	if(id==0){
-		$.post( "hc", {ep :ep,name:name,email:email,fono:fono, opc:3}).done(function(data){
+		$.post( "hc", {ep:ep,name:name,email:email,fono:fono, opc:3}).done(function(data){
 					bootbox.alert(data);
 					limpiar();
 					listarCat(0);
 					listarProd();} );
 	}else{
-		$.post( "hc", {idescuela :ep, name:name, email:email, fono:fono, ida:id, opc:6}).done(function(data){
-			bootbox.alert(data);
+		alert("Esto se edita");
+		$.post( "hc", {idescuela:ep, nombre:name, correo:email, telefono:fono, ida:id, opc:6}).done(function(data){
+			
 			$("#id").val(0);
 			limpiar();
 			listarCat(0);
-			listarProd();
+			listarProd();		
 		});
 	}
 });
@@ -38,8 +39,8 @@ function listarCat(x){
 		$.get("hc",{opc:"1"},function(data){
 			var d = JSON.parse(data);
 			for(i=0;i<d.length;i++){
-				if(x==d[i].idcategoria){
-					alert(d[i].idcategoria);
+				if(x==d[i].idescuela){
+					
 					$("#ep").append("<option value='"+d[i].idescuela+"' selected>"+d[i].nombrecat+"</option>");
 				}else{
 					$("ep").append("<option value='"+d[i].idescuela+"'>"+d[i].nombrecat+"</option>");
@@ -77,19 +78,19 @@ function eliminar(id){
 }
 function modificar(id){
 	$.post("hc",{id:id,opc:4},function(data){
-		alert(data);
+	
 		var x = JSON.parse(data);
-		alert(x[0].nom_producto);
-		$("#name").val(x[0].nom_producto);
-		$("#correo").val(x[0].precio);
-		$("#fono").val(x[0].cantidad);
-		$("#id").val(x[0].idproducto);		
-		listarCat(1);
+		$("#name").val(x[0].apellnombres);
+		$("#email").val(x[0].correo);
+		$("#fono").val(x[0].telefono);
+		$("#id").val(x[0].idalumno);	
+		listarCat(x[0].idescuela);
+		
 	});
 }
 function limpiar(){
 	$("#name").val("");
-	$("#correo").val("");
+	$("#email").val("");
 	$("#fono").val("");
 	$("#name").focus();
 }

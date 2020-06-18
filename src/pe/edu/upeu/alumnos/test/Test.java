@@ -17,10 +17,10 @@ public class Test {
 		//crearalumno();
 		//prueba();
 		//listarescuela();
-		//listalumno();
+		listalumno();
 		//listalumnoid();
 		//deletealumno();
-		updatealumno();
+		//updatealumno();
 		
 	}
 
@@ -45,7 +45,7 @@ public class Test {
 	}
 	
 	static void updatealumno() {
-		System.out.println(g.toJson(alumnosDao.update(new Alumno(5, 1, "Velverde", "verdin@gmail.com", 852055))));
+		System.out.println(g.toJson(alumnosDao.update(new Alumno(5, 1, "raul", "verdin@gmail.com", 852055))));
 	}
 	
 	static void prueba() {
